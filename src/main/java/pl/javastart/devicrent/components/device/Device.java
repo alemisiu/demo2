@@ -1,5 +1,8 @@
-package pl.javastart.devicrent.model;
+package pl.javastart.devicrent.components.device;
 
+
+import pl.javastart.devicrent.components.category.Category;
+import pl.javastart.devicrent.components.customer.Customer;
 
 import javax.persistence.*;
 import java.util.ArrayList;

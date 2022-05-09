@@ -1,4 +1,6 @@
-package pl.javastart.devicrent.model;
+package pl.javastart.devicrent.components.category;
+
+import pl.javastart.devicrent.components.device.Device;
 
 import javax.persistence.*;
 import java.util.HashSet;
