@@ -3,17 +3,17 @@ package pl.javastart.devicrent;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
-import pl.javastart.devicrent.dao.DeviceDao;
 import pl.javastart.devicrent.model.Category;
 import pl.javastart.devicrent.model.Customer;
 import pl.javastart.devicrent.model.Device;
+import pl.javastart.devicrent.repository.DeviceRepository;
 
 @SpringBootApplication
-public class Devicrent2Application {
+public class Devicrent3Application {
 
     public static void main(String[] args) {
-        ConfigurableApplicationContext ctx = SpringApplication.run(Devicrent2Application.class, args);
-        DeviceDao deviceDao = ctx.getBean(DeviceDao.class);
+        ConfigurableApplicationContext ctx = SpringApplication.run(Devicrent3Application.class, args);
+        DeviceRepository deviceRepository = ctx.getBean(DeviceRepository.class);
 
         Device device = new Device();
         device.setName("Wiertarka udarowa");
@@ -34,6 +34,6 @@ public class Devicrent2Application {
         device.setCategory(category);
         device.addCustomer(customer);
 
-        deviceDao.save(device);
+        deviceRepository.save(device);
     }
 }
