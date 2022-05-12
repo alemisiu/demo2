@@ -45,18 +45,17 @@ public class DeviceController {
         device.setPrice(scanner.nextDouble());
         System.out.println("Ilość(szt) urządzenia:");
         device.setQuantity(scanner.nextInt());
-        System.out.println("Kategoria(id) urządzenia:");
-        long categoryId = scanner.nextLong();
-        Optional<Category> category = categoryRepository.findById(categoryId);
         scanner.nextLine();
+        System.out.println("Kategoria urządzenia:");
+        String categoryName = scanner.nextLine();
+        Optional<Category> category = categoryRepository.findByNameIgnoreCase(categoryName);
         category.ifPresentOrElse(device::setCategory,
                 () -> {
-                    throw new CategoryNotFoundException("Kategoria o podanym ID nie istnieje");
+                    throw new CategoryNotFoundException("Kategoria o takiej nazwie nie istnieje");
                 }
         );
         return device;
     }
-
     public void removeDevice() {
         System.out.println("Podaj id urządzenia, które chcesz usunąć:");
         long deviceId = scanner.nextLong();

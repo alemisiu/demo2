@@ -1,6 +1,7 @@
 package pl.javastart.devicrent.components.category;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -20,9 +21,13 @@ public class CategoryController {
 
     public void createCategory() {
         Category category = readCategory();
-        categoryRepository.save(category);
-        System.out.println("Dodano kategorię");
-        System.out.println(category);
+        try {
+            categoryRepository.save(category);
+            System.out.println("Dodano kategorię");
+            System.out.println(category);
+        } catch (DataIntegrityViolationException e) {
+            System.err.println("Nie dodano kategorii, możliwe, że nazwa jest duplikatem.");
+        }
     }
 
     private Category readCategory() {
