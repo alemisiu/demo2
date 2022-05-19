@@ -9,3 +9,4 @@ public class FoodieappApplication {
         SpringApplication.run(FoodieappApplication.class);
     }
 }
+
