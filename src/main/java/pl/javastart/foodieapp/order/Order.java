@@ -1,5 +1,6 @@
 package pl.javastart.foodieapp.order;
 
+
 import pl.javastart.foodieapp.item.Item;
 
 import javax.persistence.*;

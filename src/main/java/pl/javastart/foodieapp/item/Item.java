@@ -1,5 +1,7 @@
 package pl.javastart.foodieapp.item;
 
+
+
 import javax.persistence.*;
 
 @Entity
